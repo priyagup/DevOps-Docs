@@ -1,0 +1,12 @@
+---
+- host: all
+  gather_facts: "True"
+  become: "True"
+  
+  tasks:
+  - name: Create a Login User
+    user:
+      name: svc_devops
+      state: present
+      shell: "/bin/bash"
+      home: "/home/svc_devops"
