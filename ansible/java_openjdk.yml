@@ -1,0 +1,11 @@
+---
+- hosts: all
+  gather_facts: "True"
+  become: "True"
+  
+  tasks:
+  - name: Install open JDK for Java
+    apt:
+      name: default-jdk
+      update_cache: yes
+      state: present
