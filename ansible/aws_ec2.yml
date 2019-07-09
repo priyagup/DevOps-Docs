@@ -1,0 +1,29 @@
+---
+plugin: aws_ec2
+regions:
+  - us-west-2
+strict_permissions: False
+strict: false
+#boto_profile: '697867080916'
+hostnames:
+  - tag:Name
+  - public-ip-address
+filters:
+  tag:sub_env: devnode
+keyed_groups:
+  - key: tags.ansible_groups
+    separator: ''
+  - key: tags.ansible_group
+    separator: ''
+  - key: tags.Name[:5]
+    separator: ''
+  - key: tags
+    prefix: tag
+  - key: placement.region
+    prefix: aws_region
+  - prefix: instance_type
+    key: instance_type
+compose:
+  working_environment: tags.working_environment
+  ansible_host:  public_ip_address
+...
