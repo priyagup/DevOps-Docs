@@ -1,0 +1,12 @@
+[localhost]
+localhost ansible_connection=local
+
+[webserver]
+---.---.-----
+
+[appserver]
+---.--.---.--
+
+[all]
+--.--.---.--
+--.--.--.--
