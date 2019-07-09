@@ -1,0 +1,17 @@
+---
+- name: Setup httpd Server on EC2 hosts
+  hosts: webserver
+  become: "True"
+  tasks:
+          - name: Install httpd Server
+            apt:
+                    name: httpd
+                    state: present
+          - name: Copy index.html
+            copy:
+                    src:
+                    dest: /var/www/html/index.thml
+          - name: Ensure httpd is running
+            service:
+                    name: httpd
+                    state: started
