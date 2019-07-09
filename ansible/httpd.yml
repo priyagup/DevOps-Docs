@@ -9,7 +9,7 @@
                     state: present
           - name: Copy index.html
             copy:
-                    src:
+                    src: /home/ubuntu/index.html
                     dest: /var/www/html/index.thml
           - name: Ensure httpd is running
             service:
